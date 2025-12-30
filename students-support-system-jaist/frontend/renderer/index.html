@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Focus</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PDF Focus (Windows)</h1>
+      <input id="pdfInput" type="file" accept="application/pdf" />
+      <button id="startCam">Start Camera</button>
+      <button id="calibrateBtn">Calibrate</button>
+      <button id="clearHeatmapBtn">Clear Heatmap</button>
+      <button id="exportHeatmapBtn">Export Heatmap</button>
+    </header>
+
+    <main>
+      <section class="viewer">
+        <canvas id="pdfCanvas"></canvas>
+        <canvas id="heatmapCanvas"></canvas>
+        <div id="calibrationDot" aria-hidden="true"></div>
+      </section>
+      <aside>
+        <h2>Explanation</h2>
+        <div id="explanation">Waiting for focus data...</div>
+        <div class="calibration">
+          <div class="calibration-row">
+            <span>Calibration</span>
+            <span id="calibrationText">0/5</span>
+          </div>
+          <div class="progress">
+            <div id="calibrationProgress"></div>
+          </div>
+        </div>
+        <div class="ocr">
+          <div class="ocr-row">
+            <span>OCR Focus</span>
+            <button id="ocrBtn">OCR Now</button>
+          </div>
+          <pre id="ocrText">No OCR yet.</pre>
+        </div>
+      </aside>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
